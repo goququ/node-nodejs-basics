@@ -1,6 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import { isFileExist, getDirNameFromMetaUrl } from "./utils/index.js";
+import { isFileOrDirExist, getDirNameFromMetaUrl } from "./utils/index.js";
 
 const rename = async () => {
   const CURRENT_DIRNAME = getDirNameFromMetaUrl(import.meta.url);
@@ -11,8 +11,8 @@ const rename = async () => {
     "properFilename.md"
   );
 
-  const isSourceExist = await isFileExist(FILEPATH);
-  const isDistFileExist = await isFileExist(NEW_FILEPATH);
+  const isSourceExist = await isFileOrDirExist(FILEPATH);
+  const isDistFileExist = await isFileOrDirExist(NEW_FILEPATH);
 
   if (!isSourceExist || isDistFileExist) {
     throw new Error(`FS operation failed`);

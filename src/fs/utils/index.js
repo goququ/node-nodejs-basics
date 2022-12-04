@@ -2,7 +2,7 @@ import fs from "node:fs/promises";
 import url from "node:url";
 import path from "node:path";
 
-export const isFileExist = async (path) => {
+export const isFileOrDirExist = async (path) => {
   try {
     await fs.access(path);
   } catch (_) {

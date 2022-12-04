@@ -10,7 +10,7 @@ const copy = async () => {
   try {
     fs.access(DIR_TO_COPY);
   } catch (err) {
-    throw new Error(`FS operation failed: ${DIR_TO_COPY}`);
+    throw new Error(`FS operation failed`);
   }
 
   let distDirStat;
